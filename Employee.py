@@ -13,18 +13,18 @@ class Employee(object):
 			#exit program/throw exception
 		#	print "idk"
 		#else:
-			self.NameF = data[0]
-			self.NameL = data[1]
-			self.HoursMin = data[2]
-			self.HoursMax = data[3]
-			self.Shift1 = data[4]
-			self.Shift2 = data[5]
-			self.DaysOff = [data[6], data[7], data[8], data[9], data[10], data[11], data[12]]
-			self.shifts = []
-			self.scheduled_hours = 0
-			#self.DaysOn = []
-			#for i in range(len(DaysOff)):
-			#if DaysOff[i] != True:
+		self.NameF = data[0]
+		self.NameL = data[1]
+		self.HoursMin = int(data[2])
+		self.HoursMax = int(data[3])
+		self.Shift1 = data[4]
+		self.Shift2 = data[5]
+		self.DaysOff = [data[6], data[7], data[8], data[9], data[10], data[11], data[12]]
+		self.shifts = []
+		self.scheduled_hours = 0
+		#self.DaysOn = []
+		#for i in range(len(DaysOff)):
+		#if DaysOff[i] != True:
 
 	def __str__(self):
 		return self.NameF + self.NameL
@@ -72,19 +72,35 @@ class Employee(object):
 				continue
 		totalstring += daysoff
 		totalstring += "\n"
+		totalstring += "Scheduled Hours: " + str(self.scheduled_hours) + "\n"
+		totalstring += "Scheduled Shifts:\n"
+		for shift in self.shifts:
+			totalstring += "\t" + str(shift) + '\n'
+		totalstring += '\n'
 		return totalstring
 
 	def addshift(self, shift):
-			#placeholder - to be added later
-			self.shifts.append(shift)
-			return
+		#placeholder - to be added later
+		self.shifts.append(shift)
+		self.scheduled_hours += shift.length
+		return
 
 	def clrshift(self):
-			self.shifts.pop()
-			return
+		self.scheduled_hours -= self.shifts[len(self.shifts)-1].length
+		self.shifts.pop()
+		return
 
 	def name(self):
-			return self.NameF + self.NameL
+		return self.NameF + self.NameL
+
+	def valid(self, shift):
+		#if times don't conflict, they didn't take the day off, and their hour limit has not been reached
+		#palceholder
+		if (self.scheduled_hours + shift.length) > self.HoursMax:
+			return False
+		
+		return True
+
 
 
 

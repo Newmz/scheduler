@@ -26,3 +26,6 @@ class Shift(object):
 		self.worker = "no worker yet"
 		self.filled = False
 		return
+
+	def full(self):
+		return self.filled
