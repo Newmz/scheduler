@@ -43,8 +43,8 @@ def valid_shift(shift, employee):
 			return True
 
 def fill(Schedule, Employees, day, shift, debug):
-	debug += "--"
-	#print debug
+	debug += "\t|"
+	print debug
 	if Schedule.full() or day >= 7:
 		return True
 	else:
@@ -71,15 +71,6 @@ def fill(Schedule, Employees, day, shift, debug):
 				continue
 		return False
 
-
-
-# 	Sunday 	Monday 	Tuesday 	Wednesday 	Thursday 	Friday 	Saturday 
-#	2 4-12	2 4-12	2 4-12	2 4-12		2 4-12 		2 4-12 	2 4-12
-#	3 6-2		3 6-2		3 6-2 	3 6-2 		3 6-2			3 6-2 	3 6-2
-#	2 7-2		2 7-2 	2 7-2 	2 7-2 		2 7-2 		2 7-2 	2 7-2
-#	4 2-6		-			-			-				-				-			-
-#	1 2-7		-			-			-				-				-			-
-#	2 6-10	2 6-10	2 6-10	2 6-10 		2 6-10		2 6-10	2 6-10
 
 #tests and what not
 

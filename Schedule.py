@@ -52,6 +52,7 @@ class Schedule(object):
 		for day in self.week:
 			if day.full() == False:
 				return False
+		self.finished = True
 		return True
 
 

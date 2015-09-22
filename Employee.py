@@ -95,10 +95,28 @@ class Employee(object):
 
 	def valid(self, shift):
 		#if times don't conflict, they didn't take the day off, and their hour limit has not been reached
-		#palceholder
-		if (self.scheduled_hours + shift.length) > self.HoursMax:
+		#placeholder
+		if ((self.scheduled_hours + shift.length) > self.HoursMax):
 			return False
-		
+		else:
+			for scheduled_shift in self.shifts:
+				if shift.concurrent(scheduled_shift):
+					return False
+			#if in days off
+			if shift.getDay() == "Monday" and self.DaysOff[0] == "y":
+				return False
+			elif shift.getDay() == "Tuesday" and self.DaysOff[1] == "y":
+				return False
+			elif shift.getDay() == "Wednesday" and self.DaysOff[2] == "y":
+				return False
+			elif shift.getDay() == "Thursday" and self.DaysOff[3] == "y":
+				return False
+			elif shift.getDay() == "Friday" and self.DaysOff[4] == "y":
+				return False
+			elif shift.getDay() == "Saturday" and self.DaysOff[5] == "y":
+				return False
+			elif shift.getDay() == "Sunday" and self.DaysOff[6] == "y":
+				return False	
 		return True
 
 

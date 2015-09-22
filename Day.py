@@ -4,12 +4,16 @@ class Day(object):
 	def __init__(self, day):
 		#morning contains 2 4-12, 3 6-2, 2 7-2 shifts
 		self.shifts = []
+		self.hourtotal = 0
 		for i in range(2):
 			self.shifts.append(S.Shift(Time(4, 0, 0), Time(12, 0, 0), day))
+			self.hourtotal += self.shifts[len(self.shifts)-1].length
 		for i in range(3):
 			self.shifts.append(S.Shift(Time(6, 0, 0), Time(14, 0, 0), day))
+			self.hourtotal += self.shifts[len(self.shifts)-1].length
 		for i in range(2):
 			self.shifts.append(S.Shift(Time(7, 0, 0), Time(14, 0, 0), day))
+			self.hourtotal += self.shifts[len(self.shifts)-1].length
 		
 
 		#afternoon contains 4 2-6, 1 2-7, 2 6-10 shifts
@@ -17,10 +21,13 @@ class Day(object):
 
 		for i in range(4):
 			self.shifts.append(S.Shift(Time(14, 0, 0), Time(18, 0, 0), day))
+			self.hourtotal += self.shifts[len(self.shifts)-1].length
 		for i in range(2):
 			self.shifts.append(S.Shift(Time(18, 0, 0), Time(22, 0, 0), day))
+			self.hourtotal += self.shifts[len(self.shifts)-1].length
 		self.shifts.append(S.Shift(Time(14, 0, 0), Time(19, 0, 0), day))
-
+		self.hourtotal += self.shifts[len(self.shifts)-1].length
+		print self.hourtotal
 		self.day = day
 		self.filled = False
 

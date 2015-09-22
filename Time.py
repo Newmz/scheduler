@@ -70,3 +70,11 @@ class Time(object):
 				temp += str(self.second)
 			temp += "am"
 		return temp
+
+	def __ge__(self, other):
+		#a time is greater than another if it is later in the day.
+		return (self.hour >= other.hour) or (self.hour == other.hour and self.minute >= other.minute) or (self.hour == other.hour and self.minute == other.minute and self.second >= other.second)
+
+	def __le__(self, other):
+		#a time is less than another if it is earlier in the day.
+		return (self.hour <= other.hour) or (self.hour == other.hour and self.minute <= other.minute) or (self.hour == other.hour and self.minute == other.minute and self.second <= other.second)
