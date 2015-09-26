@@ -17,22 +17,25 @@ class Schedule(object):
 		self.finished = False
 
 	def __str__(self):
-		#the big one. print out an ASCII art schedule
+		#Just print out the shifts on each day.
 		for day in self.week:
 			print day
 		return ""
 
 	def addDay(self, day):
-		#day is a Day object 
+		#appends a Day object to the Schedule
 		if len(self.week) >= 7:
+			#simple check to make sure our schedule week doesn't already have seven days
 			return
 		self.week += D.Day(day)
 		return
 
 	def getDay(self, day):
+		#accessor
 		return self.week[day]
 
 	def getShift(self, day, shift):
+		#accessor. 
 		return self.week[day].getShift(shift)
 
 	def fillshift(self, employee, day, shift):
@@ -43,12 +46,12 @@ class Schedule(object):
 		return
 
 	def clearshift(self, employee, day, shift):
+		#essentially calls a function from the Day class that will handle the actual removal
 		self.week[day].clearshift(shift, employee)
-		#same concept as above but removing a name and opening up the shift
 		return
 
 	def full(self):
-		#placeholder
+		#check if the schedule has been filled
 		for day in self.week:
 			if day.full() == False:
 				return False

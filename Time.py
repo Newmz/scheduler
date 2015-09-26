@@ -10,17 +10,18 @@ class Time(object):
 			self.ToD = "pm"
 
 	def Length(self, other):
-		#return length of shift in hours(float)
+		#return length of shift in hours(int)
 		t = other.second - self.second
 		t /= 60
 		t += other.minute - self.minute
 		t /= 60
 		t += other.hour - self.hour
-		if t < 0:
+		if t < 0: #cannot have negative shift lengths
 			t = -1 * t
 		return t
 
 	def __str__(self):
+		#outputs hh:mm:ss am/pm
 		if self.hour > 12:
 			temp = ""
 			temp += str(self.hour - 12) + ":"

@@ -36,11 +36,9 @@ def parse(filename):
 #	
 def valid_shift(shift, employee):
 	#
-	if employee.valid(shift):
-		if shift.full():
-			return False
-		else:
-			return True
+	if employee.valid(shift) and shift.full():
+		return False
+	return True
 
 def fill(Schedule, Employees, day, shift, debug):
 	debug += "\t|"
@@ -75,13 +73,13 @@ def fill(Schedule, Employees, day, shift, debug):
 #tests and what not
 
 sched = s.Schedule()
-#print temp
+
 time = s.Time(20, 17, 20)
 temp1 = parse("Text Sample")
 emps = []
 for i in range(len(temp1)):
 		emps.append(e.Employee(temp1[i]))
-		#print emps[i]
+		
 
 
 fill(sched, emps, 0, 0, "--")

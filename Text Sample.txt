@@ -24,3 +24,10 @@ Fifth 	 Dude		20				20				Morning	Afternoon	y 			y 			y 				n 			y 			y 			n
 Sixth		 Dude		20				20				Morning	Afternoon	n 			n 			n 				n 			n 			n 			n
 Seventh	 Dude		20				40				Morning	Afternoon	n 			y 			n 				n 			y 			n 			y
 Eigth 	 Dude		20				10				Morning	Afternoon	y 			n 			n 				n 			n 			n 			n
+Atticus	 Finch	20				40				Morning	Afternoon	n 			n 			n 				n 			n 			y 			n
+Harry 	 Potter	20				40				Morning	Afternoon	n 			y 			y 				n 			n 			y 			n
+Luke	Skywalker	20				24				Morning	Afternoon	y 			n 			n 				n 			y 			n 			n
+Han	 	 Solo		20				40				Morning	Afternoon	n 			y 			n 				n 			n 			n 			n
+Chew		 Bacca	20				20				Morning	Afternoon	n 			n 			y 				n 			n 			n 			y
+Seventh	 Dude		20				20				Morning	Afternoon	y 			n 			n 				n 			n 			n 			n
+Eigth 	 Dude		20				40				Morning	Afternoon	n 			y 			n 				y 			y 			y 			y
