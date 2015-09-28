@@ -99,11 +99,13 @@ class Employee(object):
 		#if times don't conflict, they didn't take the day off, and their hour limit has not been reached
 		#placeholder
 		if ((self.scheduled_hours + shift.length) > self.HoursMax):
+			print "Employee " + self.NameF + self.NameL + " already has max hours"
 			return False
 		else:
 			for scheduled_shift in self.shifts:
 				#this check also takes care of if they have been scheduled already on that day
 				if shift.concurrent(scheduled_shift):
+					print "Employee " + self.NameF + self.NameL + " has a schedule conflict"
 					return False
 			#if in days off
 			if shift.getDay() == "Monday" and self.DaysOff[0] == "y":
@@ -120,6 +122,7 @@ class Employee(object):
 				return False
 			elif shift.getDay() == "Sunday" and self.DaysOff[6] == "y":
 				return False	
+		print "valid for " + self.NameF + ' ' + self.NameL
 		return True
 
 

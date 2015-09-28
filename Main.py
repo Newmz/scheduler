@@ -36,13 +36,13 @@ def parse(filename):
 #	
 def valid_shift(shift, employee):
 	#
-	if employee.valid(shift) and shift.full():
-		return False
-	return True
+	if employee.valid(shift) and shift.full() == False:
+		return True
+	return False
 
 def fill(Schedule, Employees, day, shift, debug):
-	debug += "\t|"
-	print debug
+	debug += "  "
+	
 	if Schedule.full() or day >= 7:
 		return True
 	else:
@@ -86,5 +86,6 @@ fill(sched, emps, 0, 0, "--")
 print sched
 for e in emps:
 	print e.info()
+
 
 

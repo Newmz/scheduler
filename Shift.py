@@ -5,7 +5,7 @@ class Shift(object):
 		self.end = t2
 		self.length = t2.Length(t1)
 		self.filled = False
-		self.worker = "no worker yet" #wil contain Employee object
+		self.worker = "no worker yet" #will contain Employee object
 		self.d = day
 
 	def __str__(self):
