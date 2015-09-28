@@ -86,6 +86,8 @@ class Employee(object):
 		return
 
 	def clrshift(self):
+		#any shift being removed will be the last shift added 
+		#(because the function is only being used in context of a modified depth-first search).
 		self.scheduled_hours -= self.shifts[len(self.shifts)-1].length
 		self.shifts.pop()
 		return
@@ -100,6 +102,7 @@ class Employee(object):
 			return False
 		else:
 			for scheduled_shift in self.shifts:
+				#this check also takes care of if they have been scheduled already on that day
 				if shift.concurrent(scheduled_shift):
 					return False
 			#if in days off
