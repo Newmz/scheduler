@@ -51,7 +51,7 @@ def fill(Schedule, Employees, day, shift, debug):
 				#put employee on shift.
 				Schedule.fillshift(employee, day, shift)
 				#move to the next employee and the next shift and call fill again.
-				if (shift + 1) >= 14: #len(Schedule.getDay(day).):
+				if (shift + 1) >= 14:
 					if (fill(Schedule, Employees, day+1, 0, debug)):
 						return True
 					else:
